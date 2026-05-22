@@ -18,7 +18,7 @@ function getRecommendation(agents: AgentCount, branding: NeedsBranding): Recomme
     return {
       plan: "Enterprise",
       reason: "Custom limits on agents, conversations, and files — plus dedicated engineering support.",
-      cta: "Build My Enterprise Plan →",
+      cta: "Build my Enterprise plan",
       href: "#",
     };
   }
@@ -26,14 +26,14 @@ function getRecommendation(agents: AgentCount, branding: NeedsBranding): Recomme
     return {
       plan: "Premium",
       reason: "25 agents, 5,000 conversations/month, and white-label branding included.",
-      cta: "Start Premium Free Trial →",
+      cta: "Start Premium free trial",
       href: "#",
     };
   }
   return {
     plan: "Standard",
     reason: "10 agents, 1,000 conversations/month, and full API access — perfect to start.",
-    cta: "Start Standard Free Trial →",
+    cta: "Start Standard free trial",
     href: "#",
   };
 }
@@ -48,13 +48,13 @@ export default function HelpMeChoose() {
       <div className="mx-auto max-w-2xl">
         <div className="text-center mb-10">
           <h2
-            className="mb-2"
-            style={{ fontSize: 24, fontWeight: 700, color: "var(--cg-fg-1)", letterSpacing: "-0.01em" }}
+            className="text-2xl font-bold mb-2"
+            style={{ color: "var(--cg-fg-1)", letterSpacing: "-0.01em" }}
           >
             Not sure which plan fits?
           </h2>
-          <p style={{ color: "var(--cg-fg-3)", fontSize: 15 }}>
-            Answer two quick questions and we'll point you in the right direction.
+          <p className="text-base" style={{ color: "var(--cg-fg-3)" }}>
+            Answer two quick questions and we&apos;ll point you in the right direction.
           </p>
         </div>
 
@@ -63,21 +63,24 @@ export default function HelpMeChoose() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <StepDot number={1} done={agents !== null} />
-              <p className="font-medium" style={{ color: "var(--cg-fg-1)", fontSize: 15 }}>
+              <p className="text-sm font-medium" style={{ color: "var(--cg-fg-1)" }}>
                 How many AI agents do you need?
               </p>
             </div>
-            <div className="flex flex-wrap gap-2 pl-10">
+            <div className="flex flex-wrap gap-2" style={{ paddingLeft: 40 }}>
               {(["1-5", "6-25", "25+"] as AgentCount[]).map((opt) => (
                 <button
                   key={opt!}
                   onClick={() => setAgents(opt)}
-                  className="px-5 py-2 rounded-lg text-sm font-medium transition-all cursor-pointer"
+                  className="px-5 py-2 text-sm font-medium transition-all cursor-pointer"
                   style={{
                     background: agents === opt ? "var(--cg-primary)" : "var(--cg-bg-card)",
-                    color: agents === opt ? "#fff" : "var(--cg-fg-2)",
-                    border: agents === opt ? "1.5px solid var(--cg-primary)" : "1.5px solid var(--cg-gray-200)",
-                    boxShadow: agents === opt ? "var(--cg-primary-shadow-sm)" : "none",
+                    color: agents === opt ? "var(--cg-fg-on-primary)" : "var(--cg-fg-2)",
+                    border: agents === opt
+                      ? "1px solid var(--cg-primary)"
+                      : "1px solid var(--cg-gray-200)",
+                    borderRadius: "var(--cg-radius-md)",
+                    boxShadow: agents === opt ? "var(--cg-shadow-cta)" : "none",
                   }}
                 >
                   {opt}
@@ -87,25 +90,28 @@ export default function HelpMeChoose() {
           </div>
 
           {/* Q2 */}
-          <div style={{ opacity: agents ? 1 : 0.4, transition: "opacity 200ms" }}>
+          <div style={{ opacity: agents ? 1 : 0.4, transition: "opacity var(--cg-dur-med)" }}>
             <div className="flex items-center gap-3 mb-4">
               <StepDot number={2} done={branding !== null} />
-              <p className="font-medium" style={{ color: "var(--cg-fg-1)", fontSize: 15 }}>
+              <p className="text-sm font-medium" style={{ color: "var(--cg-fg-1)" }}>
                 Do you need white-label branding? (Remove CustomGPT logo)
               </p>
             </div>
-            <div className="flex flex-wrap gap-2 pl-10">
+            <div className="flex flex-wrap gap-2" style={{ paddingLeft: 40 }}>
               {(["no", "yes"] as NeedsBranding[]).map((opt) => (
                 <button
                   key={opt!}
                   onClick={() => agents && setBranding(opt)}
                   disabled={!agents}
-                  className="px-5 py-2 rounded-lg text-sm font-medium transition-all cursor-pointer disabled:cursor-default"
+                  className="px-5 py-2 text-sm font-medium transition-all cursor-pointer disabled:cursor-default"
                   style={{
                     background: branding === opt ? "var(--cg-primary)" : "var(--cg-bg-card)",
-                    color: branding === opt ? "#fff" : "var(--cg-fg-2)",
-                    border: branding === opt ? "1.5px solid var(--cg-primary)" : "1.5px solid var(--cg-gray-200)",
-                    boxShadow: branding === opt ? "var(--cg-primary-shadow-sm)" : "none",
+                    color: branding === opt ? "var(--cg-fg-on-primary)" : "var(--cg-fg-2)",
+                    border: branding === opt
+                      ? "1px solid var(--cg-primary)"
+                      : "1px solid var(--cg-gray-200)",
+                    borderRadius: "var(--cg-radius-md)",
+                    boxShadow: branding === opt ? "var(--cg-shadow-cta)" : "none",
                   }}
                 >
                   {opt === "no" ? "Not right now" : "Yes, I need it"}
@@ -115,20 +121,31 @@ export default function HelpMeChoose() {
           </div>
         </div>
 
-        {/* Recommendation */}
+        {/* Recommendation card */}
         {recommendation && (
           <div
-            className="mt-8 p-6 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+            className="mt-8 p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
             style={{
               background: "var(--cg-primary-8)",
-              border: "1.5px solid var(--cg-primary-16)",
+              border: "1px solid var(--cg-primary-16)",
+              borderRadius: "var(--cg-radius-xl)",
             }}
           >
             <div>
-              <p className="text-xs font-semibold mb-1" style={{ color: "var(--cg-primary)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+              <p
+                className="text-xs font-semibold mb-1"
+                style={{
+                  color: "var(--cg-primary)",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.06em",
+                }}
+              >
                 Recommended
               </p>
-              <p className="font-semibold mb-1" style={{ color: "var(--cg-fg-1)", fontSize: 17 }}>
+              <p
+                className="text-lg font-semibold mb-1"
+                style={{ color: "var(--cg-fg-1)" }}
+              >
                 {recommendation.plan} plan
               </p>
               <p className="text-sm" style={{ color: "var(--cg-fg-3)" }}>
@@ -137,11 +154,12 @@ export default function HelpMeChoose() {
             </div>
             <a
               href={recommendation.href}
-              className="inline-flex items-center whitespace-nowrap px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors shrink-0"
+              className="inline-flex items-center whitespace-nowrap px-5 py-3 text-sm font-semibold transition-colors shrink-0"
               style={{
                 background: "var(--cg-primary)",
-                color: "#fff",
-                boxShadow: "var(--cg-primary-shadow-sm)",
+                color: "var(--cg-fg-on-primary)",
+                borderRadius: "var(--cg-radius-md)",
+                boxShadow: "var(--cg-shadow-cta)",
               }}
             >
               {recommendation.cta}
@@ -156,15 +174,20 @@ export default function HelpMeChoose() {
 function StepDot({ number, done }: { number: number; done: boolean }) {
   return (
     <div
-      className="w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-xs font-bold transition-all"
+      className="flex items-center justify-center shrink-0 text-xs font-bold transition-all"
       style={{
+        width: 28,
+        height: 28,
+        borderRadius: "var(--cg-radius-full)",
         background: done ? "var(--cg-primary)" : "var(--cg-gray-200)",
-        color: done ? "#fff" : "var(--cg-fg-3)",
+        color: done ? "var(--cg-fg-on-primary)" : "var(--cg-fg-3)",
       }}
+      aria-hidden="true"
     >
       {done ? (
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-          <path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M5 12l5 5l10 -10" />
         </svg>
       ) : (
         number

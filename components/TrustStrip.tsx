@@ -21,10 +21,10 @@ export default function TrustStrip() {
           label="GDPR Ready"
         />
         <div className="flex items-center gap-2">
-          <div className="flex gap-0.5">
+          <div className="flex gap-1">
             {[...Array(5)].map((_, i) => (
               <svg key={i} width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M8 1.5l1.854 3.756 4.146.603-3 2.924.708 4.131L8 10.875l-3.708 1.95.708-4.13L2 5.859l4.146-.603L8 1.5z" fill="#FF9F43" />
+                <path d="M8 1.5l1.854 3.756 4.146.603-3 2.924.708 4.131L8 10.875l-3.708 1.95.708-4.13L2 5.859l4.146-.603L8 1.5z" fill="var(--cg-warning-500)" />
               </svg>
             ))}
           </div>

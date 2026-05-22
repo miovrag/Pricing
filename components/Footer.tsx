@@ -67,7 +67,7 @@ export default function Footer() {
               >
                 {col.title}
               </p>
-              <ul className="flex flex-col gap-2.5">
+              <ul className="flex flex-col gap-3">
                 {col.links.map((link) => (
                   <li key={link}>
                     <a

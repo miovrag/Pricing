@@ -61,11 +61,12 @@ export default function Navbar() {
           </Link>
           <Link
             href="#"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-md text-sm font-semibold transition-all"
+            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold transition-all"
             style={{
               background: "var(--cg-primary)",
               color: "var(--cg-fg-on-primary)",
-              boxShadow: "var(--cg-primary-shadow-sm)",
+              borderRadius: "var(--cg-radius-md)",
+              boxShadow: "var(--cg-shadow-cta)",
             }}
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLElement).style.background = "var(--cg-primary-hover)";

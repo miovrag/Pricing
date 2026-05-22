@@ -11,10 +11,8 @@ export default function FooterCTA() {
         Ready to start?
       </p>
       <h2
-        className="mb-4"
+        className="text-3xl font-bold mb-4"
         style={{
-          fontSize: "clamp(24px, 3.5vw, 36px)",
-          fontWeight: 700,
           color: "#fff",
           letterSpacing: "-0.02em",
           lineHeight: 1.2,
@@ -28,25 +26,27 @@ export default function FooterCTA() {
       <div className="flex flex-wrap items-center justify-center gap-4">
         <a
           href="#"
-          className="inline-flex items-center px-7 py-3.5 rounded-lg text-sm font-semibold transition-all"
+          className="inline-flex items-center px-7 py-4 text-sm font-semibold transition-all"
           style={{
             background: "#fff",
             color: "var(--cg-primary)",
-            boxShadow: "0 4px 16px rgba(0,0,0,0.2)",
+            borderRadius: "var(--cg-radius-md)",
+            boxShadow: "var(--cg-shadow-default)",
           }}
         >
-          Start my free trial →
+          Start free trial
         </a>
         <a
           href="#"
-          className="inline-flex items-center px-7 py-3.5 rounded-lg text-sm font-semibold transition-all"
+          className="inline-flex items-center px-7 py-4 text-sm font-semibold transition-all"
           style={{
             background: "transparent",
             color: "#fff",
-            border: "1.5px solid rgba(255,255,255,0.45)",
+            border: "1px solid rgba(255,255,255,0.45)",
+            borderRadius: "var(--cg-radius-md)",
           }}
         >
-          Talk to sales about enterprise
+          Talk to sales about Enterprise
         </a>
       </div>
     </section>

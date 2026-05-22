@@ -71,7 +71,8 @@ export default function FAQ() {
       <div className="mx-auto max-w-3xl">
         <div className="text-center mb-10">
           <h2
-            style={{ fontSize: 24, fontWeight: 700, color: "var(--cg-fg-1)", letterSpacing: "-0.01em" }}
+            className="text-2xl font-bold"
+            style={{ color: "var(--cg-fg-1)", letterSpacing: "-0.01em" }}
           >
             Frequently asked questions
           </h2>
@@ -83,39 +84,52 @@ export default function FAQ() {
             return (
               <div
                 key={i}
-                className="rounded-xl overflow-hidden"
-                style={{ border: "1px solid var(--cg-divider)" }}
+                style={{
+                  border: "1px solid var(--cg-divider)",
+                  borderRadius: "var(--cg-radius-xl)",
+                  overflow: "hidden",
+                }}
               >
                 <button
                   onClick={() => toggle(i)}
-                  className="w-full flex items-start justify-between gap-4 px-6 py-4 text-left transition-colors cursor-pointer"
-                  style={{ background: isOpen ? "var(--cg-primary-8)" : "var(--cg-bg-card)" }}
+                  className="w-full flex items-start justify-between gap-4 text-left transition-colors cursor-pointer"
+                  style={{
+                    background: isOpen ? "var(--cg-primary-8)" : "var(--cg-bg-card)",
+                    padding: "16px 24px",
+                  }}
                   aria-expanded={isOpen}
                 >
                   <span
-                    className="font-medium text-sm leading-5"
-                    style={{ color: isOpen ? "var(--cg-primary)" : "var(--cg-fg-1)" }}
+                    className="text-sm font-medium"
+                    style={{
+                      color: isOpen ? "var(--cg-primary)" : "var(--cg-fg-1)",
+                      lineHeight: "20px",
+                    }}
                   >
                     {faq.question}
                   </span>
                   <svg
-                    width="16" height="16" viewBox="0 0 16 16" fill="none"
-                    className="transition-transform duration-200 shrink-0 mt-0.5"
+                    width="16" height="16" viewBox="0 0 24 24"
+                    fill="none"
+                    stroke={isOpen ? "var(--cg-primary)" : "var(--cg-fg-3)"}
+                    strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                    className="transition-transform duration-200 shrink-0 mt-1"
                     style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
+                    aria-hidden="true"
                   >
-                    <path
-                      d="M4 6l4 4 4-4"
-                      stroke={isOpen ? "var(--cg-primary)" : "var(--cg-fg-3)"}
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M6 9l6 6l6 -6" />
                   </svg>
                 </button>
                 {isOpen && (
                   <div
-                    className="px-6 pb-5 pt-1 text-sm leading-6"
-                    style={{ color: "var(--cg-fg-2)", borderTop: "1px solid var(--cg-primary-16)" }}
+                    className="text-sm"
+                    style={{
+                      color: "var(--cg-fg-2)",
+                      borderTop: "1px solid var(--cg-primary-16)",
+                      padding: "12px 24px 20px",
+                      lineHeight: "24px",
+                    }}
                   >
                     {faq.answer}
                   </div>
@@ -129,7 +143,7 @@ export default function FAQ() {
           <p className="text-sm" style={{ color: "var(--cg-fg-3)" }}>
             Still have questions?{" "}
             <a href="#" className="font-medium" style={{ color: "var(--cg-primary)" }}>
-              Book a 15-min call with an expert →
+              Book a 15-min call with an expert
             </a>
           </p>
         </div>

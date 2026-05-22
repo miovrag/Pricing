@@ -37,7 +37,8 @@ export default function Testimonials() {
             Customer stories
           </p>
           <h2
-            style={{ fontSize: 24, fontWeight: 700, color: "var(--cg-fg-1)", letterSpacing: "-0.01em" }}
+            className="text-2xl font-bold"
+            style={{ color: "var(--cg-fg-1)", letterSpacing: "-0.01em" }}
           >
             Trusted by teams who ship AI fast
           </h2>
@@ -46,10 +47,12 @@ export default function Testimonials() {
           {TESTIMONIALS.map((t) => (
             <div
               key={t.name}
-              className="p-7 rounded-xl flex flex-col gap-5"
+              className="flex flex-col gap-5"
               style={{
+                padding: "24px",
                 background: "var(--cg-bg-card)",
                 border: "1px solid var(--cg-divider)",
+                borderRadius: "var(--cg-radius-xl)",
                 boxShadow: "var(--cg-shadow-card)",
               }}
             >
@@ -59,7 +62,7 @@ export default function Testimonials() {
                   <svg key={i} width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <path
                       d="M7 1l1.545 3.13L12 4.635l-2.5 2.435.59 3.44L7 8.75l-3.09 1.76.59-3.44L2 4.635l3.455-.505L7 1z"
-                      fill="#FF9F43"
+                      fill="var(--cg-warning-500)"
                     />
                   </svg>
                 ))}
@@ -67,8 +70,8 @@ export default function Testimonials() {
 
               {/* Quote */}
               <p
-                className="flex-1 leading-6"
-                style={{ color: "var(--cg-fg-2)", fontSize: 14, fontStyle: "italic" }}
+                className="flex-1 text-sm leading-6"
+                style={{ color: "var(--cg-fg-2)", fontStyle: "italic" }}
               >
                 &ldquo;{t.quote}&rdquo;
               </p>
