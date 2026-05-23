@@ -272,8 +272,17 @@ export default function ComparisonTable() {
           </button>
         </div>
 
-        {/* Horizontal scroll on mobile */}
-        <div className="overflow-x-auto -mx-2 px-2">
+        {/* Scroll container — overflow on both axes so sticky thead works cross-browser */}
+        <div
+          className="-mx-2 px-2"
+          style={{
+            overflowX: "auto",
+            overflowY: "auto",
+            maxHeight: "72vh",
+            borderRadius: "var(--cg-radius-xl)",
+            border: "1px solid var(--cg-divider)",
+          }}
+        >
           <table
             className="w-full border-collapse"
             style={{ minWidth: 600 }}
@@ -291,7 +300,7 @@ export default function ComparisonTable() {
                   className="text-left text-sm font-semibold"
                   style={{
                     position: "sticky",
-                    top: 64,
+                    top: 0,
                     zIndex: 20,
                     background: "var(--cg-bg-card)",
                     padding: "16px 20px",
@@ -309,7 +318,7 @@ export default function ComparisonTable() {
                     className="text-center text-sm font-semibold"
                     style={{
                       position: "sticky",
-                      top: 64,
+                      top: 0,
                       zIndex: 20,
                       background: i === 1 ? "rgba(115,103,240,0.025)" : "var(--cg-bg-card)",
                       padding: "16px",
