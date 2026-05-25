@@ -62,10 +62,10 @@
   --cg-shadow-default: 0 4px 18px 0 rgba(23,23,23,0.08);
   --cg-shadow-card:    0 4px 24px 0 rgba(23,23,23,0.06);
   --cg-shadow-lg:      0 8px 24px 0 rgba(23,23,23,0.10);
-  --cg-shadow-cta:     0 4px 24px rgba(115,103,240,0.35);  /* purple CTAs only */
-  --cg-primary-shadow-sm:      0 2px 4px rgba(115,103,240,0.30);
-  --cg-primary-shadow-default: 0 2px 6px rgba(115,103,240,0.35);
-  --cg-primary-shadow-lg:      0 4px 18px rgba(115,103,240,0.40);
+  --cg-shadow-cta:             none;
+  --cg-primary-shadow-sm:      none;
+  --cg-primary-shadow-default: none;
+  --cg-primary-shadow-lg:      none;
 
   /* Radius scale */
   --cg-radius-sm:   4px;   /* small controls            */
