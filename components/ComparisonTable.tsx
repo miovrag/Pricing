@@ -320,7 +320,7 @@ export default function ComparisonTable() {
                       position: "sticky",
                       top: 0,
                       zIndex: 20,
-                      background: i === 1 ? "rgba(115,103,240,0.025)" : "var(--cg-bg-card)",
+                      background: i === 1 ? "color-mix(in srgb, var(--cg-primary) 5%, var(--cg-bg-card))" : "var(--cg-bg-card)",
                       padding: "16px",
                       color: i === 1 ? "var(--cg-primary)" : "var(--cg-fg-1)",
                       borderBottom: "2px solid var(--cg-divider)",
