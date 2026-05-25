@@ -44,7 +44,7 @@ export default function HelpMeChoose() {
   const recommendation = getRecommendation(agents, branding);
 
   return (
-    <section className="py-16 px-6" style={{ background: "var(--cg-gray-50)" }}>
+    <section className="py-16 px-6" style={{ background: "var(--cg-bg-card)" }}>
       <div className="mx-auto max-w-2xl">
         <div className="text-center mb-10">
           <h2
